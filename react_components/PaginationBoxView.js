@@ -93,7 +93,7 @@ export default class PaginationBoxView extends Component {
     this.setState({selected: selected});
 
     // Call the callback with the new selected item:
-    this.callCallback(selected);
+    this.callCallback(selected, evt);
   };
 
   hrefBuilder(pageIndex) {
@@ -106,10 +106,10 @@ export default class PaginationBoxView extends Component {
     }
   }
 
-  callCallback = (selectedItem) => {
+  callCallback = (selectedItem, event) => {
     if (typeof(this.props.onPageChange) !== "undefined" &&
         typeof(this.props.onPageChange) === "function") {
-      this.props.onPageChange({selected: selectedItem});
+      this.props.onPageChange({selected: selectedItem, event});
     }
   };
 
